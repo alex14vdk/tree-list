@@ -2,14 +2,14 @@ import {makeStyles} from "@material-ui/core/styles";
 import {drawerWidth} from "../App/style";
 
 export const drawerHeader = makeStyles((theme) => ({
-    root:{
+    root: {
         display: 'flex',
         alignItems: 'center',
         padding: theme.spacing(0, 1),
         // necessary for content to be below app bar
         ...theme.mixins.toolbar,
         justifyContent: "space-between",
-        textAlign:"center"
+        textAlign: "center"
     }
 }))
 
@@ -26,10 +26,10 @@ export const useStyles = makeStyles((theme) => ({
     drawerPaper: {
         width: drawerWidth,
     },
-    list:{
-        textAlign:"center"
+    list: {
+        textAlign: "center"
     },
-    loader:{
-        margin:theme.spacing(3)
+    loader: {
+        margin: theme.spacing(3)
     }
 }))

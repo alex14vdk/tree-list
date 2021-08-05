@@ -5,29 +5,12 @@ import Typography from '@material-ui/core/Typography';
 import IconButton from '@material-ui/core/IconButton';
 import MenuIcon from '@material-ui/icons/Menu';
 import clsx from "clsx";
-import {useDispatch, useSelector} from "react-redux";
-import {menu} from "../../redux/actions/options";
 import {useStyles} from "./style";
+import containerNavTop from "./container";
 
 
-const NavTop = (props) => {
-    const dispatch = useDispatch();
-    const {options: {menuOpen, curCompany}, companies: {data}} = useSelector(state => state);
+const NavTop = ({menuOpen, companyName, handleDrawerOpen}) => {
     const classes = useStyles();
-
-    const handleDrawerOpen = () => {
-        dispatch(menu(true));
-    };
-
-    const companyName = useMemo(() => {
-        let curElement = data.filter(e => e.id === curCompany)
-        curElement = curElement[0];
-
-        if (curElement) {
-            return curElement.name
-        } else return "React App"
-
-    }, [curCompany])
 
     return (
         <AppBar
@@ -54,4 +37,4 @@ const NavTop = (props) => {
     )
 }
 
-export default NavTop;
+export default containerNavTop(NavTop);

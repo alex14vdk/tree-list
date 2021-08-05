@@ -14,22 +14,22 @@ export default function (state = initialState, action) {
         case OPTION_MENU_OPEN:
             return {
                 ...state,
-                menuOpen:payload,
+                menuOpen: payload,
             };
         case OPTION_SET_COMPANY:
             return {
                 ...state,
-                curCompany:payload,
+                curCompany: payload,
             };
         case OPTION_CLIENT_PANEL:
             return {
                 ...state,
-                clientPanel:payload,
+                clientPanel: payload,
             };
         case OPTION_SET_FLAT:
             return {
                 ...state,
-                curFlat:payload,
+                curFlat: payload,
             };
         default:
             return state;

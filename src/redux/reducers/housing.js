@@ -2,7 +2,7 @@ import {HOUSING_REQUEST, HOUSING_SUCCESS, HOUSING_FAILURE} from "../types";
 
 const initialState = {
     data: [],
-    dataOriginal:[],
+    dataOriginal: [],
     loading: false,
     error: null,
 };
@@ -31,7 +31,7 @@ export default function (state = initialState, action) {
             return {
                 ...state,
                 data: [],
-                dataOriginal:[],
+                dataOriginal: [],
                 loading: false,
                 error: payload
             };

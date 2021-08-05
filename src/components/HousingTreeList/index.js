@@ -1,7 +1,6 @@
 import React from 'react';
 import clsx from "clsx";
 import './style.js';
-import {useDispatch, useSelector} from "react-redux";
 import {useStyles} from "./style";
 import {drawerHeader} from "../CompanyPanel/style";
 import Backdrop from "@material-ui/core/Backdrop";
@@ -11,11 +10,9 @@ import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import ChevronRightIcon from '@material-ui/icons/ChevronRight';
 import TreeItem from '@material-ui/lab/TreeItem';
 import ClientList from "../ClientsList";
-import {setCurFlat} from "../../redux/actions/options";
+import containerHousingTreeList from "./container";
 
-const HousingTreeList = (props) => {
-    const {options: {menuOpen}, housing: {data, loading}} = useSelector((state) => state);
-    const dispatch = useDispatch();
+const HousingTreeList = ({menuOpen, data, loading, chooseFlat}) => {
     const classes = useStyles();
 
     const renderTree = tree => {
@@ -26,7 +23,7 @@ const HousingTreeList = (props) => {
                         nodeId={elem.name + elem.id + '_' + elem.parent}
                         label={elem.name}
                         key={elem.name + elem.id + '_' + elem.parent}
-                        onClick={()=>dispatch(setCurFlat(elem.addressId))}
+                        onClick={() => chooseFlat(elem.addressId)}
                     />
                 );
             } else {
@@ -65,7 +62,7 @@ const HousingTreeList = (props) => {
                     defaultExpandIcon={<ChevronRightIcon/>}
                 >
                     {
-                        data && data.length>0
+                        data && data.length > 0
                         &&
                         renderTree(data)
                     }
@@ -76,4 +73,4 @@ const HousingTreeList = (props) => {
     )
 }
 
-export default HousingTreeList;
+export default containerHousingTreeList(HousingTreeList);

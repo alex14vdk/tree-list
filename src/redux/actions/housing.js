@@ -8,10 +8,10 @@ export const housingRequest = () => {
         type: HOUSING_REQUEST
     }
 };
-export const housingLoaded = (data,dataOriginal) => {
+export const housingLoaded = (data, dataOriginal) => {
     return {
         type: HOUSING_SUCCESS,
-        payload: {data,dataOriginal}
+        payload: {data, dataOriginal}
     }
 };
 export const housingError = (error) => {
@@ -27,18 +27,18 @@ const getTreeFormat = (dataArr) => {
     for (let {streetName, building, flat, clients, addressId, houseId, streetId} of dataArr) {
         result = [...result,
             {
-                id:streetId,
-                name:`Улица ${streetName}`,
-                parent:0
+                id: streetId,
+                name: `Улица ${streetName}`,
+                parent: 0
             },
             {
-                id:houseId,
-                name:`Дом ${building}`,
-                parent:streetId
+                id: houseId,
+                name: `Дом ${building}`,
+                parent: streetId
             },
             {
-                name:`Квартира ${flat}`,
-                parent:houseId,
+                name: `Квартира ${flat}`,
+                parent: houseId,
                 addressId,
                 clients,
             }
@@ -57,7 +57,7 @@ export const getHousingList = (companyId) => (dispatch) => {
     dispatch(housingRequest());
     Service.get(`HousingStock?companyId=${companyId}`,
         ({data}) => {
-            dispatch(housingLoaded(getTreeFormat(data),data))
+            dispatch(housingLoaded(getTreeFormat(data), data))
         },
         error => {
             dispatch(housingError(error))

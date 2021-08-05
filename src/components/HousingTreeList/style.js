@@ -23,24 +23,24 @@ export const useStyles = makeStyles((theme) => ({
         }),
         marginLeft: 0,
     },
-    contentWrapper:{
-        display:"flex",
+    contentWrapper: {
+        display: "flex",
         justifyContent: "space-between",
-        flexWrap:"wrap",
+        flexWrap: "wrap",
         [theme.breakpoints.down('sm')]: {
-            height:"100vh"
+            height: "100vh"
         },
     },
-    tree:{
+    tree: {
         flexGrow: 1,
-        flexShrink:0,
-        paddingRight:"16px !important",
+        flexShrink: 0,
+        paddingRight: "16px !important",
         maxWidth: treeWidth,
-            [theme.breakpoints.down('sm')]: {
-                height:"30%",
-                overflow: "auto",
-                maxWidth:"100%",
-                marginBottom: "20px"
-            },
+        [theme.breakpoints.down('sm')]: {
+            height: "30%",
+            overflow: "auto",
+            maxWidth: "100%",
+            marginBottom: "20px"
+        },
     }
 }));

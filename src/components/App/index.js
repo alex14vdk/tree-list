@@ -4,9 +4,7 @@ import HousingTreeList from "../HousingTreeList";
 import NavTop from "../NavTop";
 import {useStyles} from "./style";
 
-
-
-const App = (props) => {
+const App = () => {
     const classes = useStyles();
 
     return (

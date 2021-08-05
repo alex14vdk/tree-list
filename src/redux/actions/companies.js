@@ -1,4 +1,4 @@
-import {COMPANIES_REQUEST,COMPANIES_SUCCESS,COMPANIES_FAILURE} from "../types";
+import {COMPANIES_REQUEST, COMPANIES_SUCCESS, COMPANIES_FAILURE} from "../types";
 import Service from "../../utils/service";
 
 
@@ -24,7 +24,7 @@ export const companiesError = (error) => {
 export const getCompaniesList = () => (dispatch) => {
     dispatch(companiesRequest());
     Service.get('Request/companies',
-        ({data})=>{
+        ({data}) => {
             dispatch(companiesLoaded(data))
         },
         error => {

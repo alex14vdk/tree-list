@@ -49,7 +49,7 @@ export const addClientToHousing = (clientData, addressId, successCallback) => (d
     )
 }
 
-export const deleteClientFromHousing = (bindId,successCallback) => (dispatch) => {
+export const deleteClientFromHousing = (bindId, successCallback) => (dispatch) => {
     dispatch(clientRequest());
     Service.del(
         `HousingStock/bind_client/${bindId}`,
